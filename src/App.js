@@ -8,14 +8,13 @@ function App() {
     <div className="App">
         <Layout>
           <Routes>
-            <Route path="/" element={<Document />} >
-              
+            <Route path="/document/:title" element={<Document />} >
             </Route>
-            <Route path="/storage" element={<Storage />} />
-            <Route path="/message" element={<Message />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/schedule" element={<Schedule />} />
-            <Route path="/report" element={<Report />} />
+            <Route path="/storage/:title" element={<Storage />} />
+            <Route path="/message/:title" element={<Message />} />
+            <Route path="/work/:title" element={<Work />} />
+            <Route path="/schedule/:title" element={<Schedule />} />
+            <Route path="/report/:title" element={<Report />} />
           </Routes>
         </Layout>
     </div>

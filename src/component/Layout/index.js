@@ -12,7 +12,9 @@ function Layout({ children }) {
         <div className={styles.rightPart}>
           <Header />
           <div className={styles.contentWrapper}>
-            {children}
+            <div id='table'>
+              {children}
+            </div>
           </div>
         </div>
     </div>

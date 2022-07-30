@@ -1,0 +1,20 @@
+.wrapper {
+    display: flex;
+    background-color: #f1f3f4;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+}
+
+.rightPart {
+    -webkit-box-flex: 3;
+    flex: 3;
+
+}
+
+.contentWrapper {
+
+}
