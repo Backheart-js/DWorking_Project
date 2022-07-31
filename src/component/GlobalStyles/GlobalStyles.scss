@@ -6,6 +6,8 @@
     --row_height: 4.7rem;
 }
 
+$colors: #FF69B4, #E6E6FA, #663399, #FF0000, #FFA500, #FFFF00,#BDB76B, #008000, #00FFFF, #0000FF, #000;
+
 p {
     margin-bottom: 0;
 }
@@ -39,6 +41,7 @@ p {
 
 .icon {
     color: #5f6368;
+    user-select: none;
 }
 
 .block {
@@ -354,7 +357,7 @@ input[type="checkbox"] {
         display: flex;
         justify-content: space-between;
         padding: 4px 6px;
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         border-radius: 20px;
         user-select: none;
 
@@ -449,15 +452,24 @@ input[type="checkbox"] {
 }
 
 // Css màu của nhãn thêm vào
-// $i: 0;
-// @each $color in $colors {
-//     $i: $i+1;
+$i: 0;
+@each $color in $colors {
+    $i: $i+1;
 
-//     .label-#{$i} {
-//       color: $color;
-//       opacity: 0.9;
-//     }
-// }
+    .label-#{$i} {
+      color: $color;
+      opacity: 0.9;
+    }
+}
+
+$i: 0;
+@each $color in $colors {
+    $i: $i+1;
+
+    .color-#{$i} {
+        background-color: $color;
+    }
+}
 
 .category__function-item {
     display: flex;
@@ -644,7 +656,7 @@ input[type="checkbox"] {
 
 .member__list-wrapper {
     overflow-y: scroll;
-    height: calc(100% - (84px + 57px));
+    height: calc(100% - 80px);
 }
 .func__member-list {
     list-style: none;
@@ -673,6 +685,7 @@ input[type="checkbox"] {
     font-size: 15px;
     color: #666;
     background-color: transparent;
+    border: none;
 }
 .func__member-option {
     text-align: center;
@@ -960,5 +973,64 @@ input[type="checkbox"] {
     }
 }
 
+.star-icon, .label-icon {
+    user-select: none;
+}
 
+// Modal
+.color-container {
+    display: flex;
+    width: 95%;
+    margin: 8px 0;
+    margin-left: auto;
+    flex-wrap: wrap;
+    justify-content: end;
+}
 
+.color-choose {
+    position: relative;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 16px;
+    margin-bottom: 12px;
+
+    &.color-active {
+        .color-choose-icon {
+            display: block;
+        }
+    }
+
+    .color-choose-icon {
+        display: none;
+        position: absolute;
+        color: #fff;
+        font-size: 3.4rem;
+        user-select: none;
+    }
+}
+
+.delete-color {
+    font-size: 1.6rem;
+    color: #666;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #e8e7e7;
+    }
+}
+
+.dropdown__row {
+    font-size: 1.6rem;
+    padding: 6px 12px;
+    color: #83868a;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #f5f5f5;
+    }
+}

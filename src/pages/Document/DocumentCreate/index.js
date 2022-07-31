@@ -1,6 +1,11 @@
 import React from 'react'
+import BasicModal from '../../../component/Modal';
 
 function DocumentCreate() {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+
   return (
       <div className="table table-create-doc">
         <div className="table-create-header flex-center-y">
@@ -27,7 +32,7 @@ function DocumentCreate() {
                 <h4 className="func-title">
                   Người tham gia
                 </h4>
-                <button title="addMem" className="open-modal func__member-btn flex-center">
+                <button title="addMem" className="open-modal func__member-btn flex-center" onClick={handleOpen}>
                   <span className="material-icons">
                     person_add_alt_1
                   </span>
@@ -38,7 +43,7 @@ function DocumentCreate() {
                     <li className="func__member-item flex-center-y">
                       <span className="func__member-name">Nguyễn Vân A</span>
                       <span className="func__member-quantity">1</span>
-                      <select name id className="func__member-select">
+                      <select className="func__member-select">
                         <option value="duyet" className="func__member-option">Duyệt</option>
                         <option value="ky" className="func__member-option">Ký</option>
                         <option value="xem" className="func__member-option">Xem</option>
@@ -75,6 +80,7 @@ function DocumentCreate() {
             </div>
           </div>
         </div>
+        <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose}/>
       </div>
   )
 }

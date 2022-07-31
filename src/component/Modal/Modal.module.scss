@@ -1,0 +1,63 @@
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+}
+.modalTitle {
+    font-size: 28px;
+    font-weight: 400;
+    color: #666;
+    user-select: none;
+}
+.wrapCloseModal {
+    cursor: pointer;
+}
+
+.iconClose {
+    font-size: 2.8rem;
+    user-select: none;
+    border-radius: 50%;
+    padding: 4px;
+
+    &:hover {
+        background-color: var(--background_icon_hover_color);
+    }
+}
+
+.modalFooter {
+    position: absolute;
+    bottom: 28px;
+    right: 32px;
+}
+
+.btnModal {
+    border: none;
+    border-radius: 6px;
+    min-width: 76px;
+    min-height: 44px;
+    padding: 0 8px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all .2s ease-in-out;
+
+    +.btnModal {
+        margin-left: 16px;
+    }
+}
+
+.closeModal {
+    background-color: #dedede;
+    color: #333;
+
+    &:hover {
+        background-color: rgb(193, 192, 192);
+    }
+}
+
+.addBtnModal {
+    background-color: #1a73e8;
+    color: #fff;
+
+    &:hover {
+        background-color: #0567e7;
+    }
+}

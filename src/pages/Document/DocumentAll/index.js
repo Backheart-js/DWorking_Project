@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function DocumentAll() {
+
+  const [checkedAll, setCheckedAll] = useState(false)
+
+  const handleCheckedAll = (e) => {
+    setCheckedAll(e.target.checked);
+  }
+
   return (
       <div className="table table-all-doc ">
         <div className="table__heading flex-center-y">
@@ -109,7 +116,7 @@ function DocumentAll() {
                   </div>
                   <div className="table__icon-wrap table__content-function-icon flex-center">
                     <span className="material-icons star-icon">
-                      star_outline
+                      star
                     </span>
                   </div>
                   <div className="table__icon-wrap table__content-function-icon flex-center">
