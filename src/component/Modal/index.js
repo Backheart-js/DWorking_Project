@@ -10,16 +10,15 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '650px',
+    minWidth: '600px',
     maxWidth: '700px',
-    minHeight: '470px',
+    minHeight: '320px',
     bgcolor: 'background.paper',
     borderRadius: '10px',
     p: 4,
-    paddingBottom: '50px'
 };
 
-export default function BasicModal({ isOpen, handleOpen, handleClose, children,  ...props }) {
+export default function BasicModal({ isOpen, handleOpen, handleClose, btnText = 'Thêm', children,  ...props }) {
   
 
   return (
@@ -39,13 +38,18 @@ export default function BasicModal({ isOpen, handleOpen, handleClose, children, 
                     </span>
                 </div>
             </div>
-            {children}
+            <div className={styles.modalContent}>
+              {children}
+            </div>
             <div className={styles.modalFooter}>
                 <button type="button" className={`${styles.btnModal} ${styles.closeModal}`} onClick={handleClose}>
                     Hủy
                 </button>
-                <button type="button" className={`${styles.btnModal} ${styles.addBtnModal}`} onClick={props.onAdd}>
-                    Thêm
+                <button type="button" className={`${styles.btnModal} ${styles.addBtnModal}`} 
+                  onClick={() => {
+                    (props.type === 'addLabel' && props.onAdd()) || (props.type === 'editLabel' && props.onEdit())
+                  }}>
+                    {btnText}
                 </button>
             </div>
         </Box>

@@ -1,10 +1,11 @@
 .modalHeader {
+    margin-bottom: 24px;
     display: flex;
     justify-content: space-between;
 }
 .modalTitle {
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 500;
     color: #666;
     user-select: none;
 }
@@ -22,11 +23,14 @@
         background-color: var(--background_icon_hover_color);
     }
 }
+.modalContent {
+    min-height: 160px;
+    padding-bottom: 24px;
+}
 
 .modalFooter {
-    position: absolute;
-    bottom: 28px;
-    right: 32px;
+    display: flex;
+    justify-content: end;
 }
 
 .btnModal {

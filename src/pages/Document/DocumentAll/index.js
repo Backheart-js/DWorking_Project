@@ -40,7 +40,7 @@ function DocumentAll() {
           </div>
           <div className="table__heanding--right flex-center-y">
             <div className="table__heading-text flex-center" style={{marginRight: 20}}>
-              <span>1 - 20 trong số 120</span>
+              <span style={{fontWeight: '500', color: '#666'}}>1 - 20 trong số 120</span>
               <div className="dropdown__wrapper">
                 <ul className="dropdown__list">
                   <li className="dropdown__row">Mới nhất</li>

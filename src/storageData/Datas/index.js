@@ -56,7 +56,7 @@ export const colorsLabel = [
     },
 ]
 
-export const members = [
+export const dataMembers = [
     {
         id: 1,
         fullname: 'Nguyễn Vân Anh',
@@ -68,7 +68,7 @@ export const members = [
         fullname: 'Trần Vân Anh',
         department: 'Ban giám đốc',
         office: 'Phó giám đốc'
-    },
+    },  
     {
         id: 3,
         fullname: 'Nguyễn Vân Anh',

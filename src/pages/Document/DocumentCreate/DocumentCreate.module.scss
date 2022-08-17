@@ -1,0 +1,75 @@
+.modalNoti {
+
+}
+
+.modalComfirm {
+
+}
+.modalContent {
+    font-size: 1.8rem;
+    color: #666;
+    user-select: none;
+}
+
+.documentFuncTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: #999;
+    text-transform: capitalize;
+    height: 5.2rem;
+    border-bottom: 3px solid rgb(181, 180, 180);
+
+}
+.documentFuncInfo {
+    height: calc(100% - 2 * 52px);
+    overflow-y: scroll;
+}
+
+.documentFuncInfo::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+.documentFuncInfo::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: transparent;
+    border-radius: 10px;
+}
+
+.documentFuncInfo::-webkit-scrollbar-thumb
+{
+	background-color: #999;
+    border-radius: 10px;
+}
+
+.documentDirectory {
+    padding: 12px 0 12px 12px;
+
+    .direcOptionsGroup {
+        list-style: none;
+        margin-bottom: 0;
+        padding-top: 8px;
+
+        .direcOptions {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 6px;
+
+            span {
+                font-weight: 500;
+                color: rgb(120, 120, 120);
+            }
+
+            input+span{
+                margin-left: 12px;
+            }
+        }
+    }
+}
+
+.documentFuncButton {
+    
+}

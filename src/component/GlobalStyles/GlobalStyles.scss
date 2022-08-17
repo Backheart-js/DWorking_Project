@@ -13,6 +13,10 @@ p {
 }
 
 // Custom css
+.text-decor-none {
+    text-decoration: none!important;
+}
+
 .btn {
     display: flex;
     align-items: center;
@@ -441,6 +445,8 @@ input[type="checkbox"] {
 .label-add-wrapper {
     border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    border: none;
 
     .label-add-icon {
         font-size: 2.8rem;
@@ -568,7 +574,7 @@ $i: 0;
     .table-create-doc {
         position: relative;
         width: 100%;
-        height: 700px;
+        height: 770px;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         background-color: #fff;
@@ -594,8 +600,8 @@ $i: 0;
 .table-create-content {
     position: absolute;
     width: 93%;
-    height: 600px;
-    bottom: 48px;
+    height: 700px;
+    bottom: 16px;
     right: 8px;
 
     .doc-row {
@@ -604,11 +610,15 @@ $i: 0;
 
         .document-wrapper {
             padding-right: 4px;
-            height: 628px;
+            height: 100%;
         }
 
         .document-func-wrapper {
+            position: relative;
+            height: 100%;
             padding-left: 4px;
+            border-radius: 20px;
+            box-shadow: rgba(149, 157, 165, .4) 0px 8px 24px;
         }
 
     }
@@ -621,22 +631,40 @@ $i: 0;
 
 .func-title {
     font-size: 1.8rem;
-    color: #666;
+    color: #999;
     font-weight: 500;
+    text-align: start;
+    margin-bottom: 16px;
+    user-select: none;
+}
+
+.document-func-member,
+.document-func-file,
+.document-func-desc {
+    position: relative;
+    padding: 12px 0 12px 12px;
+}
+.document-func-member::after,
+.document-func-file::after,
+.document-func-desc::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: calc(90% - 12px);
+    background-color: #d7d3d3;
+    bottom: 0;
+    left: 0;
+    margin-left: 12px;
 }
 
 .document-func-member {
-    height: calc(5/12*100%);
-    padding: 16px 0 16px 20px;
-    border-radius: 20px;
-    box-shadow: rgba(149, 157, 165, .4) 0px 8px 24px;
+    min-height: 100px;
     margin-bottom: 8px;
 
     .func__member-btn {
         color: #666;
         font-size: 16px;
-        margin-top: 12px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
         padding: 4px 8px;
         width: 90%;
         background-color: transparent;
@@ -655,13 +683,20 @@ $i: 0;
 }
 
 .member__list-wrapper {
-    overflow-y: scroll;
-    height: calc(100% - 80px);
+    width: 90%;
+}
+.member__list-wrapper::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+.member__list-wrapper::-webkit-scrollbar
+{
+	background-color: transparent;
+    border-radius: 10px;
 }
 .func__member-list {
     list-style: none;
     padding-left: 0;
-    padding-right: 16px;
 
     .func__member-item {
         justify-content: space-around;
@@ -696,31 +731,28 @@ $i: 0;
     }
 }
 .document-func-desc {
-    position: relative;
-    height: calc(3/12*100%);
-    border-radius: 20px;
-    box-shadow: rgba(149, 157, 165, .4) 0px 8px 24px;
+    height: 170px;
     margin: 8px 0;
     padding-top: 16px;
 
     .textarea-wrapper {
         position: absolute;
+        padding-left: 12px;
+        /* padding-right: 28px; */
         height: 95px;
-        width: 93%;
-        bottom: 10px;
-        right: 0px;
-        border: 2px solid #999;
+        width: 90%;
+        /* right: 0px; */
+        left: 0;
         border-radius: 2px;
-        overflow-y: scroll;
 
         .textarea-desc {
             width: 100%; 
-            padding: 8px 0 0 0;
-            border-style: none; 
-            border-color: Transparent; 
+            padding: 4px 0 0 8px;
+            height: 100%;
+            border-color: #999; 
 
             &::placeholder {
-                color: #666;
+                color: #999;
                 font-size: 1.6rem;
                 font-weight: 500;
             }
@@ -728,30 +760,34 @@ $i: 0;
     }
 }
 .document-func-file {
-    height: calc(3/12*100%);
-    border-radius: 20px;
-    box-shadow: rgba(149, 157, 165, .4) 0px 8px 24px;
+    min-height: 100px;
     margin: 8px 0;
 
-    .func__file-input {
-        width: 0.1px;
-        height: 0.1px;
-        opacity: 0;
-        overflow: hidden;
-    }
-    .func__file-label {
-        font-size: 2rem;
-        font-weight: 500;
+    .func__file-btn {
+        color: #666;
+        font-size: 16px;
+        margin-bottom: 16px;
+        padding: 4px 8px;
+        width: 90%;
         background-color: transparent;
-        display: inline-block;
+        border: 2px solid rgb(192, 192, 192);
+        border-radius: 10px;
         cursor: pointer;
+
+        span {
+            margin-right: 8px;
+        }
+
+        &:hover {
+            background-color: #f5f5f5;
+        }
     }
 }
 .document-func-btn {
     display: flex;
-    height: calc(1/12*100%);
+    height: 5.2rem;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: center;
 
     .btn-close-doc,
     .btn-save-doc,
@@ -1033,4 +1069,48 @@ $i: 0;
     &:hover{
         background-color: #f5f5f5;
     }
+}
+.modal-title {
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+        font-size: 28px;
+        font-weight: 400;
+        color: #666;
+        user-select: none;
+    }
+
+    .modal-close-btn {
+        padding: 4px;
+        border-radius: 50%;
+
+        span {
+            font-size: 2.8rem;
+            user-select: none;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: #e8e7e7;
+        }
+    }
+}
+
+.modal__search {
+    position: relative;
+    margin-bottom: 16px;
+
+    .modal__icon-wrapper {
+        position: absolute;
+        height: 100%;
+        width: 60px;
+    }
+}
+
+.modal__search-input {
+    font-size: 1.6rem;
+    padding: 12px 16px 12px 60px;
+    border-radius: 10px;
+    background-color: #e8eaed;
 }
