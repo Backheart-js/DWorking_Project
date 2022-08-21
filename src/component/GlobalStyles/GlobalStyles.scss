@@ -8,6 +8,10 @@
 
 $colors: #FF69B4, #E6E6FA, #663399, #FF0000, #FFA500, #FFFF00,#BDB76B, #008000, #00FFFF, #0000FF, #000;
 
+button:focus {
+    outline: none;
+}
+
 p {
     margin-bottom: 0;
 }
@@ -83,10 +87,9 @@ p {
     width: 100%;
 }
 
-//
-// .table {
-//     display: none;
-// }
+.table {
+    position: relative;
+}
 
 .table__icon-wrap {
     height: 100%;
@@ -584,12 +587,18 @@ $i: 0;
         width: 100%;
 
         .table__heading {
+            // position: absolute;
             height: var(--row_height);
             background-color: #fff;
             justify-content: space-between;
             padding: 0 20px 0 8px;
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+            // +div {
+            //     margin-top: var(--row_height);
+            // }
         }
     }
 }

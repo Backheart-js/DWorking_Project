@@ -8,7 +8,6 @@ import DocumentSent from './DocumentSent';
 function Document() {
   const { title } = useParams()
 
-  
   return (
     <>
       {(title === 'create' && <DocumentCreate />) || (title === 'all' && <DocumentAll />) || (title === 'sent' && <DocumentSent />)}

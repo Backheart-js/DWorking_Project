@@ -16,12 +16,12 @@ function Header() {
                 </div>
                 <div className="toolbar__settings">
                     <div className="toolbar__settings-wrap">
-                        <span className="icon material-icons-sharp">
-                            help
+                        <span className="icon material-icons-sharp" title="Hỗ trợ">
+                            help_outline
                         </span>
                     </div>
                     <div className="toolbar__settings-wrap">
-                        <span className="icon material-icons-sharp">
+                        <span className="icon material-icons-sharp" title="Cài đặt">
                             settings
                         </span>
                     </div>

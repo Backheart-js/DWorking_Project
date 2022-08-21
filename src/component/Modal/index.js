@@ -47,7 +47,14 @@ export default function BasicModal({ isOpen, handleOpen, handleClose, btnText = 
                 </button>
                 <button type="button" className={`${styles.btnModal} ${styles.addBtnModal}`} 
                   onClick={() => {
-                    (props.type === 'addLabel' && props.onAdd()) || (props.type === 'editLabel' && props.onEdit())
+                    switch (props.type) {
+                      case 'addLabel':
+                        return props.onAdd();
+                      case 'editLabel':
+                        return props.onEdit();
+                      default:
+                        return props.onSubmit();
+                    }
                   }}>
                     {btnText}
                 </button>

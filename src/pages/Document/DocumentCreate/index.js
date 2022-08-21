@@ -1,5 +1,5 @@
 import { red } from '@mui/material/colors';
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import BasicModal from '../../../component/Modal';
 import { dataMembers } from "../../../storageData/Datas";
 
@@ -77,14 +77,29 @@ const reducerModal = (state, action) => {
 
 function DocumentCreate() {
   const [modalState, dispatch] = useReducer(reducerModal, initOpenModal);
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [sendStep, setSendStep] = useState(true);
+  const [approveStep, setApproveStep] = useState(false);
+  const [replicationStep, setReplicationStep] = useState(false);
   const handleOpen = () => setIsOpen(true);
   const handleClose = () => {
     dispatch(SETCLOSE_ACTION)
     setIsOpen(false)
   };
 
-  console.log(modalState);
+  //Gửi tài liệu để phê duyệt
+  const onSendModal = () => {
+    handleClose();
+    setSendStep(false);
+    setApproveStep(true);
+  }
+  const onApproveModal = () => {
+    handleClose();
+    // setSendStep(false);
+    setApproveStep(false);
+    setReplicationStep(true);
+  }
+  console.log(sendStep);
   let array_1 = ``, array_2 = ``, array_3 = ``;
 
 //   dataMembers.map((member) => {
@@ -294,12 +309,40 @@ function DocumentCreate() {
               </div>
               
               <div className={`document-func-btn w-full ${styles.documentFuncButton}`}>
-                <button className="btn-close-doc">Hủy</button>
-                <button className="btn-save-doc">Lưu</button>
-                <button className="btn-create-doc" onClick={() => {
-                  dispatch(SENDMODAL_ACTION);
-                  handleOpen();
-                }}>Gửi</button>
+                {
+                  (sendStep &&
+                  ( 
+                    <>
+                      <button className="btn-close-doc">Hủy</button>
+                      <button className="btn-save-doc">Lưu</button>
+                      <button className="btn-create-doc" onClick={() => {
+                        dispatch(SENDMODAL_ACTION);
+                        handleOpen();
+                      }}>Gửi</button>
+                    </>
+                  ))
+                  ||
+                  (approveStep && (
+                    <>
+                      <button className="btn-close-doc">Từ chối</button>
+                      <button className="btn-save-doc">Lưu</button>
+                      <button className="btn-create-doc" onClick={() => {
+                        dispatch(SENDMODAL_ACTION);
+                        handleOpen();
+                      }}>Duyệt</button>
+                    </>
+                  ))
+                  ||
+                  (replicationStep && (
+                    <>
+                      <button className="btn-save-doc">In</button>
+                      <button className="btn-create-doc" onClick={() => {
+                        dispatch(SENDMODAL_ACTION);
+                        handleOpen();
+                      }}>Nhân bản</button>
+                    </>
+                  ))
+                }
               </div>
             </div>
           </div>
@@ -351,7 +394,7 @@ function DocumentCreate() {
                 </div>
             </div>
         </BasicModal>}
-        {modalState.sendModal && <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Trình duyệt tài liệu'} btnText={'Gửi'}>
+        {modalState.sendModal && <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Trình duyệt tài liệu'} btnText={'Gửi'} onSubmit={onSendModal}>
           <div className={styles.modalNoti}>
             <p className={styles.modalContent}>Tài liệu sẽ được gửi đến các cấp phê duyệt</p>  
             <p className={styles.modalContent}>Trong quá trình phê duyệt, tài liệu không thể chỉnh sửa.</p>

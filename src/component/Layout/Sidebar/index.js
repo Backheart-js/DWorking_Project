@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
-import { Document } from '../../../pages';
+import { Document, Storage } from '../../../pages';
 import PanelDocument from './PanelDocument';
+import PanelStorage from './PanelStorage';
 
 import './Sidebar.scss'
 
@@ -29,7 +30,7 @@ function Sidebar() {
             <NavLink to="/storage" className="category__function-item">
               <div className="category__function-wrap">
                 <span className="icon material-icons-sharp category__function-icon">
-                  folder_open
+                  folder
                 </span>
               </div>
               <p className="category__function-tag">Lưu trữ</p>
@@ -37,14 +38,14 @@ function Sidebar() {
             <NavLink to="/message" className="category__function-item">
               <div className="category__function-wrap">
                 <span className="icon material-icons-sharp category__function-icon">
-                  chat_bubble_outline
+                  chat_bubble
                 </span>
               </div>
               <p className="category__function-tag">Chat</p>
             </NavLink>
             <NavLink to="/work" className="category__function-item">
               <div className="category__function-wrap">
-                <span className="icon material-icons-sharp">
+                <span className="icon material-icons-sharp category__function-icon">
                   assignment_turned_in
                 </span>
               </div>
@@ -76,6 +77,9 @@ function Sidebar() {
         <Routes>
             <Route path="/document" element={<PanelDocument />} >
               <Route path="/document/:title" element={<Document />} />
+            </Route>
+            <Route path="/storage" element={<PanelStorage />} >
+              <Route path="/storage/:title" element={<Storage />} />
             </Route>
           </Routes>
           

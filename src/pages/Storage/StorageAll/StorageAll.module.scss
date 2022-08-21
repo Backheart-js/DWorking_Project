@@ -1,0 +1,410 @@
+.tableHeading {
+    justify-content: space-between;
+
+    .documentDirectory {
+        height: 100%;
+        padding-left: 20px;
+    }
+
+    .documentLayoutStyles {
+        justify-content: space-between;
+        margin-right: 12px;
+        width: 70px;
+    }
+}
+
+.directoryElement {
+    height: 30px;
+
+    .directoryText {
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 30px;
+        color: #777;
+        margin-bottom: 0;
+        user-select: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .directoryText {
+            color: #555;
+        }
+    }
+}
+
+.directoryNext {
+    height: 100%;
+    width: 48px;
+
+    .directoryIcon {
+        color: #777;
+        font-weight: 600;
+        user-select: none;
+        transform: translateY(2px);
+    }
+}
+
+.layoutStylesWrapper {
+    display: flex;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    padding: 4px;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: #f5f3f3;
+
+        .layoutStylesIcon {
+            color: #555;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.layoutStylesWrapper.layoutActive {
+
+    .layoutStylesIcon {
+        color: #555;
+        font-size: 2.6rem;
+    }
+}
+
+.layoutStylesIcon {
+    color: #999;
+    user-select: none;
+    transition: all .2s ease-out;
+}
+
+// Content
+.contentWrapper {
+    height: 770px;
+    padding-left: 28px;
+    background-color: #fff;
+    overflow-y: scroll;
+    
+}
+
+.content {
+    height: 100%;
+}
+
+.contentTableWrapper[layout=grid] {
+    
+    .tableListHeader {
+        display: none;
+    }
+    
+    .tableGridHeader {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .folderGroup {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+        margin: 0 -8px;
+        padding-top: 24px;
+
+        .folderWrapper {
+            position: relative;
+            display: flex;
+            flex: 0 0 calc(2/12*100% - 16px);
+            max-width: calc(2/12*100% - 16px);
+            align-items: center;
+            height: 44px;
+            margin: 0 8px 20px 8px;
+            border: 2px solid #999;
+            border-radius: 6px;
+            transition: all .2s ease-out;
+
+            .folderIcon {
+                position: absolute;
+                color: #777;
+                font-size: 2rem;
+                top: 50%;
+                left: 15%;
+                user-select: none;
+                transform: translate(-50%, -50%);
+            }
+            .folderName {
+                position: absolute;
+                color: #777;
+                font-weight: 500;
+                font-size: 1.5rem;
+                top: 48%;
+                left: 50%;
+                user-select: none;
+                transform: translate(-50%, -50%);
+            }
+
+            .folderCreator,
+            .modifyTime,
+            .folderSize {
+                display: none;
+            }
+
+            &:hover {
+                background-color: #f5f3f3;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .fileGroup {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+        margin: 0 -8px;
+        padding-top: 24px;
+
+        .fileWrapper {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 calc(2/12*100% - 16px);
+            max-width: calc(2/12*100% - 16px);
+            align-items: center;
+            margin: 0 8px 20px 8px;
+            border: 2px solid #999;
+            border-radius: 6px;
+            transition: all .2s ease-out;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            .fileImageWrapper {
+                width: 100%;
+
+                .fileImg {
+                    width: 100%;
+                    height: 110px;
+                }
+            }
+
+            .fileInfo {
+                position: relative;
+                display: flex;
+                align-items: center;
+                height: 44px;
+                width: 100%;
+
+                .fileIcon {
+                    position: absolute;
+                    color: #777;
+                    font-size: 2rem;
+                    top: 50%;
+                    left: 15%;
+                    transform: translate(-50%, -50%);
+                    user-select: none;
+                }
+
+                .fileName {
+                    position: absolute;
+                    color: #777;
+                    font-weight: 500;
+                    font-size: 1.5rem;
+                    top: 48%;
+                    left: 50%;
+                    user-select: none;
+                    transform: translate(-50%, -50%);
+                }
+            
+                .fileCreator,
+                .modifyTime,
+                .fileSize {
+                    display: none;
+                }
+            }
+        }
+    
+    }
+}
+
+.contentTableWrapper[layout=list] {
+    margin-right: 24px;
+    margin-top: 16px;
+
+    .tableListHeader {
+        display: flex;
+        width: 100%;
+        text-align: left;
+        font-size: 1.7rem;
+        color: #777;
+        font-weight: 500;
+        user-select: none;
+        
+        .listHeaderText:first-child {
+            flex: 6;
+        }
+        .listHeaderText:nth-child(2) {
+            flex: 2;
+        }
+        .listHeaderText:nth-child(3)  {
+            flex: 2;
+        }
+        .listHeaderText:last-child  {
+            flex: 2;
+        }
+
+    }
+    
+    .tableGridHeader {
+        display: none;
+    }
+
+    .folderGroup {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+        padding-top: 16px;
+
+        .folderWrapper {
+            position: relative;
+            text-align: left;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            height: 44px;
+            border-top: 1px solid #999;
+            transition: all .2s ease-out;
+
+            .folderIcon {
+                flex: 0.5;
+                color: #777;
+                font-size: 2rem;
+                user-select: none;
+                
+            }
+            .folderName {
+                flex: 5.5;
+                color: #777;
+                font-weight: 500;
+                font-size: 1.6rem;
+                user-select: none;
+            }
+
+            .folderCreator {
+                flex: 2;
+                color: #777;
+                font-weight: 500;
+                font-size: 1.6rem;
+                user-select: none;
+            }
+
+            .modifyTime {
+                flex: 2;
+                color: #777;
+                font-weight: 500;
+                font-size: 1.6rem;
+                user-select: none;
+            }
+
+            .folderSize {
+                flex: 2;
+                color: #777;
+                font-weight: 500;
+                font-size: 1.6rem;
+                user-select: none;
+            }
+
+            &:hover {
+                background-color: #f5f3f3;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .fileGroup {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0;
+
+        .fileWrapper {
+            width: 100%;
+            align-items: center;
+
+            &:hover {
+                background-color: #f5f3f3;
+                cursor: pointer;
+            }
+
+            .fileImageWrapper {
+                display: none;
+
+                .fileImg {
+                    width: 100%;
+                    height: 110px;
+                }
+            }
+
+            .fileInfo {
+                position: relative;
+                text-align: left;
+                display: flex;
+                width: 100%;
+                align-items: center;
+                height: 44px;
+                border-top: 1px solid #999;
+                transition: all .2s ease-out;
+
+                .fileIcon {
+                    flex: 0.5;
+                    color: #777;
+                    font-size: 2rem;
+                    user-select: none;
+                    
+                }
+                .fileName {
+                    flex: 5.5;
+                    color: #777;
+                    font-weight: 500;
+                    font-size: 1.6rem;
+                    user-select: none;
+                }
+    
+                .fileCreator {
+                    flex: 2;
+                    color: #777;
+                    font-weight: 500;
+                    font-size: 1.6rem;
+                    user-select: none;
+                }
+    
+                .modifyTime {
+                    flex: 2;
+                    color: #777;
+                    font-weight: 500;
+                    font-size: 1.6rem;
+                    user-select: none;
+                }
+    
+                .fileSize {
+                    flex: 2;
+                    color: #777;
+                    font-weight: 500;
+                    font-size: 1.6rem;
+                    user-select: none;
+                }
+            }
+        }
+    
+    }
+}
+
+.tableRow {
+    display: flex;
+    flex-wrap: wrap;
+}
