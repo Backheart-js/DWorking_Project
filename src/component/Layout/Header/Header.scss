@@ -4,30 +4,40 @@
     height: 75.2px;
 
     .toolbar__search {
-        position: relative;
         flex: 3;
-
-        .search__icon-wrap {
-            position: absolute;
-            height: 100%;
-            width: 60px;
+        height: 4.8rem;
+        
+        .search__wrapper {
+            position: relative;
             display: flex;
-            align-items: center;
-            text-align: center;
-        }
-
-        .toolbar__search-input {
-            width: 95%;
-            padding: 16px 16px 16px 60px;
-            border-radius: 10px;
+            height: 100%;
             background-color: #e8eaed;
+            border-radius: 10px;
 
-            &::placeholder {
-                font-size: 1.5rem;
-                font-weight: 500;
-                color: #666
+            .search__icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2.8rem;
+                font-weight: 600;            
+                padding: 0 20px;
+            }
+
+            .search__input {
+                flex-grow: 1;
+                border: none;
+                background-color: transparent;
+
+                &:focus {
+                    outline: none;
+                }
+                &::placeholder {
+                    font-size: 1.7rem;
+                    font-weight: 600;
+                }
             }
         }
+        
     }
 
     .toolbar__settings {

@@ -1,7 +1,8 @@
-import React, { useReducer, useRef, useState } from 'react'
+import React, { useReducer, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom';
 import { colorsLabel } from '../../../../storageData/Datas';
 import { LabelsAvailable } from '../../../../storageData/Labels';
+import Dropdown from '../../../Dropdown';
 import BasicModal from '../../../Modal';
 import '../Sidebar.scss'
 
@@ -157,11 +158,11 @@ function PanelDocument() {
                         <p className="label__content">{labelColor.title}</p>
                     </div>
                     <div className="label__more-wrapper">
-                        <span className="label__more-icon open-dropdown icon material-icons " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span className="label__more-icon open-dropdown icon material-icons" data-toggle="dropdown">
                             more_vert
                         </span>
                         
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <Dropdown>
                             <li className={`dropdown__row`} onClick={(e) => {
                                 setTypeModal('editLabel')
                                 setDataColor({...stateColor[e.target.closest('.label-item').dataset.index],index:e.target.closest('.label-item').dataset.index})
@@ -170,7 +171,7 @@ function PanelDocument() {
                             <li className={`dropdown__row`} onClick={(e) => {
                                 handleRemove(e.target.closest('.label-item').dataset.index)
                             }}>Xóa</li>
-                        </div>
+                        </Dropdown>
                     </div>
                 </li>
             ))}
@@ -178,7 +179,7 @@ function PanelDocument() {
         </div>
         <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} type={typeModal} title={typeModal === 'addLabel' ? 'Tạo nhãn mới' : 'Chỉnh sửa nhãn'} onAdd={handleAdd} onEdit={handleEdit} >
             <div className="label-name-wrapper">
-                <p className="label-text">Vui lòng nhập tên nhãn mới</p>
+                <p className="label-text">Vui lòng nhập tên nhãn mới:</p>
                 <input required={true} value={dataColor.title} type="text" className="label-input" onChange={(e) => {
                     setDataColor({...dataColor, title: e.target.value})
                 }}/>
@@ -199,7 +200,7 @@ function PanelDocument() {
                                 }}
                                 >
                                 <span className="color-choose-icon material-icons">
-                                    done
+                                    check
                                 </span>
                             </div>
                         )

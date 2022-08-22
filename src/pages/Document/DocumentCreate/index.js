@@ -99,7 +99,9 @@ function DocumentCreate() {
     setApproveStep(false);
     setReplicationStep(true);
   }
-  console.log(sendStep);
+  const defaultSubmit = () => {
+
+  }
   let array_1 = ``, array_2 = ``, array_3 = ``;
 
 //   dataMembers.map((member) => {
@@ -209,62 +211,7 @@ function DocumentCreate() {
                           <option value="ky" className="func__member-option">Ký</option>
                           <option value="xem" className="func__member-option">Xem</option>
                         </select>
-                      </li>
-                      <li className="func__member-item flex-center-y">
-                        <span className="func__member-name">Nguyễn Vân A</span>
-                        <span className="func__member-quantity">1</span>
-                        <select className="func__member-select">
-                          <option value="duyet" className="func__member-option">Duyệt</option>
-                          <option value="ky" className="func__member-option">Ký</option>
-                          <option value="xem" className="func__member-option">Xem</option>
-                        </select>
-                      </li>
-                      <li className="func__member-item flex-center-y">
-                        <span className="func__member-name">Nguyễn Vân A</span>
-                        <span className="func__member-quantity">1</span>
-                        <select className="func__member-select">
-                          <option value="duyet" className="func__member-option">Duyệt</option>
-                          <option value="ky" className="func__member-option">Ký</option>
-                          <option value="xem" className="func__member-option">Xem</option>
-                        </select>
-                      </li>
-                      <li className="func__member-item flex-center-y">
-                        <span className="func__member-name">Nguyễn Vân A</span>
-                        <span className="func__member-quantity">1</span>
-                        <select className="func__member-select">
-                          <option value="duyet" className="func__member-option">Duyệt</option>
-                          <option value="ky" className="func__member-option">Ký</option>
-                          <option value="xem" className="func__member-option">Xem</option>
-                        </select>
-                      </li>
-                      <li className="func__member-item flex-center-y">
-                        <span className="func__member-name">Nguyễn Vân A</span>
-                        <span className="func__member-quantity">1</span>
-                        <select className="func__member-select">
-                          <option value="duyet" className="func__member-option">Duyệt</option>
-                          <option value="ky" className="func__member-option">Ký</option>
-                          <option value="xem" className="func__member-option">Xem</option>
-                        </select>
-                      </li>
-                      <li className="func__member-item flex-center-y">
-                        <span className="func__member-name">Nguyễn Vân A</span>
-                        <span className="func__member-quantity">1</span>
-                        <select className="func__member-select">
-                          <option value="duyet" className="func__member-option">Duyệt</option>
-                          <option value="ky" className="func__member-option">Ký</option>
-                          <option value="xem" className="func__member-option">Xem</option>
-                        </select>
-                      </li>
-                      <li className="func__member-item flex-center-y">
-                        <span className="func__member-name">Nguyễn Vân A</span>
-                        <span className="func__member-quantity">1</span>
-                        <select className="func__member-select">
-                          <option value="duyet" className="func__member-option">Duyệt</option>
-                          <option value="ky" className="func__member-option">Ký</option>
-                          <option value="xem" className="func__member-option">Xem</option>
-                        </select>
-                      </li>
-                      
+                      </li>       
                     </ul>
                   </div>
                 </div>
@@ -273,7 +220,7 @@ function DocumentCreate() {
                     Tài liệu tham chiếu đính kèm
                   </h4>
                   <button className="func__file-btn flex-center" onClick={() => {}}>
-                    <span class="icon material-icons">
+                    <span className="icon material-icons">
                       file_upload
                     </span>
                     Tải file lên
@@ -324,10 +271,13 @@ function DocumentCreate() {
                   ||
                   (approveStep && (
                     <>
-                      <button className="btn-close-doc">Từ chối</button>
+                      <button className="btn-close-doc" onClick={() => {
+                        dispatch(REJECTMODAL_ACTION);
+                        handleOpen();
+                      }}>Từ chối</button>
                       <button className="btn-save-doc">Lưu</button>
                       <button className="btn-create-doc" onClick={() => {
-                        dispatch(SENDMODAL_ACTION);
+                        dispatch(FEEDBACKMODAL_ACTION);
                         handleOpen();
                       }}>Duyệt</button>
                     </>
@@ -335,9 +285,12 @@ function DocumentCreate() {
                   ||
                   (replicationStep && (
                     <>
-                      <button className="btn-save-doc">In</button>
+                      <button className="btn-save-doc" onClick={() => {
+                        dispatch(REMOVEMODAL_ACTION);
+                        handleOpen();
+                      }}>Xóa</button>
                       <button className="btn-create-doc" onClick={() => {
-                        dispatch(SENDMODAL_ACTION);
+                        dispatch(COPYMODAL_ACTION);
                         handleOpen();
                       }}>Nhân bản</button>
                     </>
@@ -347,63 +300,112 @@ function DocumentCreate() {
             </div>
           </div>
         </div>
-        {modalState.addModal && <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Thêm người duyệt'}>
-          <div class="modal__search flex-center-y">
-                <div class="modal__icon-wrapper flex-center">
-                    <span class="material-icons modal__icon icon">
-                        search
-                    </span>
-                </div>
-                <span class="w-full">
-                    <input type="text" class="modal__search-input w-full" placeholder="Nhập để tìm kiếm..."/>
+
+        {/* Modal */}
+        {modalState.addModal && 
+        <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Thêm người duyệt'}>
+          <div className="modal__search flex-center-y">
+            <div className="modal__icon-wrapper flex-center">
+                <span className="material-icons modal__icon icon">
+                    search
                 </span>
             </div>
-            <div class="modal__options">
-                <div class="modal__member-group">
-                    <div class="group-title-wrapper flex-center-y">
-                        <span class="material-icons member-icon">
-                            arrow_right
-                        </span>
-                        Ban Giám đốc
-                    </div>
-                    <ul class="members-list">
-                        {array_1}
-                    </ul>
-                </div>
-                <div class="modal__member-group">
-                    <div class="group-title-wrapper flex-center-y">
-                        <span class="material-icons member-icon">
-                            arrow_right
-                        </span>
-                        Hành chính nhân sự
-                    </div>
-                    <ul class="members-list">
-                        {array_2}
-                    </ul>
-                </div>
-                <div class="modal__member-group active">
-                    <div class="group-title-wrapper flex-center-y">
-                        <span class="material-icons member-icon">
-                            arrow_right
-                        </span>
-                        Kế toán
-                    </div>
-                    <ul class="members-list">
-                        {array_3}
-                    </ul>
-                </div>
-            </div>
+            <span className="w-full">
+                <input type="text" className="modal__search-input w-full" placeholder="Nhập để tìm kiếm..."/>
+            </span>
+          </div>
+          <div className="modal__options">
+              <div className="modal__member-group">
+                  <div className="group-title-wrapper flex-center-y">
+                      <span className="material-icons member-icon">
+                          arrow_right
+                      </span>
+                      Ban Giám đốc
+                  </div>
+                  <ul className="members-list">
+                      {array_1}
+                  </ul>
+              </div>
+              <div className="modal__member-group">
+                  <div className="group-title-wrapper flex-center-y">
+                      <span className="material-icons member-icon">
+                          arrow_right
+                      </span>
+                      Hành chính nhân sự
+                  </div>
+                  <ul className="members-list">
+                      {array_2}
+                  </ul>
+              </div>
+              <div className="modal__member-group active">
+                  <div className="group-title-wrapper flex-center-y">
+                      <span className="material-icons member-icon">
+                          arrow_right
+                      </span>
+                      Kế toán
+                  </div>
+                  <ul className="members-list">
+                      {array_3}
+                  </ul>
+              </div>
+          </div>
         </BasicModal>}
-        {modalState.sendModal && <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Trình duyệt tài liệu'} btnText={'Gửi'} onSubmit={onSendModal}>
+
+        {modalState.sendModal && 
+        <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Trình duyệt tài liệu'} btnText={'Gửi'} onSubmit={onSendModal}>
           <div className={styles.modalNoti}>
-            <p className={styles.modalContent}>Tài liệu sẽ được gửi đến các cấp phê duyệt</p>  
-            <p className={styles.modalContent}>Trong quá trình phê duyệt, tài liệu không thể chỉnh sửa.</p>
+            <p className={styles.modalTextContent}>Tài liệu sẽ được gửi đến các cấp phê duyệt</p>  
+            <p className={styles.modalTextContent}>Trong quá trình phê duyệt, tài liệu không thể chỉnh sửa.</p>
           </div>
           <br/>
           <div className={styles.modalComfirm}>
-            <span className={styles.modalContent}>Tiếp tục trình duyệt tài liệu này?</span>
+            <span className={styles.modalTextContent}>Tiếp tục trình duyệt tài liệu này?</span>
           </div>
         </BasicModal>}
+
+        {modalState.feedbackModal && 
+        <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Gửi phản hồi'} btnText={'Phản hồi'} onSubmit={onApproveModal}>
+          <div className={styles.modaNoti}>
+            <p className={styles.modalTextContent}>Vui lòng nhập thông tin phản hồi:</p>
+            <textarea className={styles.modalFeedbackTextarea} rows="6">
+
+            </textarea>
+          </div>
+        </BasicModal>}
+
+        {modalState.rejectModal && 
+        <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Từ chối phê duyệt'} btnText={'Gửi'} onSubmit={defaultSubmit}>
+          <div className={styles.modaNoti}>
+            <p className={styles.modalTextContent}>Vui lòng nhập lý do từ chối:</p>
+            <textarea className={styles.modalFeedbackTextarea} rows="2">
+
+            </textarea>
+          </div>
+        </BasicModal>}
+
+        {modalState.copyModal &&
+        <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Nhân bản tài liệu'} btnText={'Đồng ý'} onSubmit={defaultSubmit}>
+          <div className={styles.modalNoti}>
+            <p className={styles.modalTextContent}>Tài liệu được nhân bản ở trạng thái nháp, giữ nguyên tất cả các thiết lập và có thể chỉnh sửa.</p>  
+          </div>
+          <br/>
+          <div className={styles.modalComfirm}>
+            <span className={styles.modalTextContent}>Tiếp tục nhân bản tài liệu này?</span>
+          </div>
+        </BasicModal>
+        }
+
+        {modalState.removeModal &&
+        <BasicModal isOpen={isOpen} handleOpen={handleOpen} handleClose={handleClose} title={'Xóa tài liệu'} btnText={'Đồng ý'} onSubmit={defaultSubmit}>
+          <div className={styles.modalNoti}>
+            <p className={styles.modalTextContent}>Tài liệu đã xóa không thể tìm kiếm.</p>  
+          </div>
+          <br/>
+          <div className={styles.modalComfirm}>
+            <span className={styles.modalTextContent}>Tiếp tục xóa tài liệu này?</span>
+          </div>
+        </BasicModal>
+        }
       </div>
   )
 }

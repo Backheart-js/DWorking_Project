@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import Dropdown from '../../../component/Dropdown';
 import Image from '../../../component/Image';
 import styles from './StorageAll.module.scss';
 
@@ -73,7 +74,7 @@ function StorageAll() {
               <div className={`${styles.folderGroup}`}>
                 <div className={`${styles.folderWrapper}`} onContextMenu={(e) => {
                   e.preventDefault();
-                  console.log('reight click')
+                  console.log(e.target);
                 }}>
                   <span className={`material-icons icon ${styles.folderIcon}`}>
                     folder
@@ -91,11 +92,13 @@ function StorageAll() {
                     2 MB
                   </span>
                 </div>
+                <Dropdown>
+                  <li className={`dropdown_row`}>
+                    Chia se
+                  </li>
+                </Dropdown>
 
-                <div className={`${styles.folderWrapper}`} onContextMenu={(e) => {
-                  e.preventDefault();
-                  console.log('reight click')
-                }}>
+                <div className={`${styles.folderWrapper}`}>
                   <span className={`material-icons icon ${styles.folderIcon}`}>
                     folder
                   </span>

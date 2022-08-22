@@ -10,12 +10,12 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    minWidth: '600px',
+    minWidth: '550px',
     maxWidth: '700px',
     minHeight: '320px',
     bgcolor: 'background.paper',
     borderRadius: '10px',
-    p: 4,
+    padding: '32px 40px',
 };
 
 export default function BasicModal({ isOpen, handleOpen, handleClose, btnText = 'Thêm', children,  ...props }) {

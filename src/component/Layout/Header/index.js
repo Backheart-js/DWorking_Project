@@ -5,14 +5,12 @@ function Header() {
   return (
     <div id="toolbar">
                 <div className="toolbar__search">
-                    <div className="search__icon-wrap">
-                        <span className="material-icons table__icon-wrap icon" style={{height: '50%', width: '100%'}}>
+                    <div className="search__wrapper">
+                        <span className="material-icons search__icon icon" style={{height: '100%'}}>
                             search
                         </span>
+                        <input type="text" className="search__input" placeholder="Tìm kiếm"></input>
                     </div>
-                    <span>
-                        <input type="text" className="toolbar__search-input" placeholder="Tìm kiếm"/>
-                    </span>
                 </div>
                 <div className="toolbar__settings">
                     <div className="toolbar__settings-wrap">

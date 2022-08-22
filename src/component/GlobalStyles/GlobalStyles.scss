@@ -441,9 +441,20 @@ input[type="checkbox"] {
 }
 
 .label-text {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    color: #666;
+    font-weight: 500;
+    user-select: none;
+}
+.label-input {
+    padding: 10px 8px;
+    width: 100%;
+    font-size: 1.6rem;
     color: #666;
     font-weight: 400;
+    margin: 12px 0;
+    border: 1px solid #999;
+    border-radius: 2px;
 }
 .label-add-wrapper {
     border-radius: 50%;
@@ -1034,8 +1045,8 @@ $i: 0;
 
 .color-choose {
     position: relative;
-    height: 36px;
-    width: 36px;
+    height: 38px;
+    width: 38px;
     border-radius: 50%;
     cursor: pointer;
     margin-left: 16px;
@@ -1051,7 +1062,7 @@ $i: 0;
         display: none;
         position: absolute;
         color: #fff;
-        font-size: 3.4rem;
+        font-size: 3.3rem;
         user-select: none;
     }
 }
@@ -1062,6 +1073,7 @@ $i: 0;
     padding: 8px 12px;
     border-radius: 4px;
     background-color: transparent;
+    border: none;
     cursor: pointer;
 
     &:hover {

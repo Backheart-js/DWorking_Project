@@ -5,10 +5,23 @@
 .modalComfirm {
 
 }
-.modalContent {
+
+.modalTextContent {
     font-size: 1.8rem;
-    color: #666;
+    color: #888;
+    max-width: 500px;
     user-select: none;
+}
+
+.modalFeedbackTextarea {
+    margin-top: 16px;
+    width: 100%;
+    padding: 2px 4px 0 4px;
+    border: 2px solid #999;
+
+    &:focus-visible {
+        outline: none;
+    }
 }
 
 .documentFuncTitle {

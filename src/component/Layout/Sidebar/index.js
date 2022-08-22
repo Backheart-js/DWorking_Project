@@ -19,7 +19,7 @@ function Sidebar() {
         </div>
         <div className="category__function">
           <ul className="category__function-list">
-            <NavLink to="/document" className="category__function-item">
+            <NavLink to="/document" className="category__function-item text-decor-none">
               <div className="category__function-wrap">
                 <span className="icon material-icons category__function-icon">
                   description
@@ -27,7 +27,7 @@ function Sidebar() {
               </div>
               <p className="category__function-tag">Tài liệu</p>
             </NavLink>
-            <NavLink to="/storage" className="category__function-item">
+            <NavLink to="/storage" className="category__function-item text-decor-none">
               <div className="category__function-wrap">
                 <span className="icon material-icons-sharp category__function-icon">
                   folder
@@ -35,7 +35,7 @@ function Sidebar() {
               </div>
               <p className="category__function-tag">Lưu trữ</p>
             </NavLink>
-            <NavLink to="/message" className="category__function-item">
+            <NavLink to="/message" className="category__function-item text-decor-none">
               <div className="category__function-wrap">
                 <span className="icon material-icons-sharp category__function-icon">
                   chat_bubble
@@ -43,7 +43,7 @@ function Sidebar() {
               </div>
               <p className="category__function-tag">Chat</p>
             </NavLink>
-            <NavLink to="/work" className="category__function-item">
+            <NavLink to="/work" className="category__function-item text-decor-none">
               <div className="category__function-wrap">
                 <span className="icon material-icons-sharp category__function-icon">
                   assignment_turned_in
@@ -51,7 +51,7 @@ function Sidebar() {
               </div>
               <p className="category__function-tag">Công việc</p>
             </NavLink>
-            <NavLink to="/schedule" className="category__function-item">
+            <NavLink to="/schedule" className="category__function-item text-decor-none">
               <div className="category__function-wrap">
                 <span className="icon material-icons-sharp category__function-icon">
                   event
@@ -59,7 +59,7 @@ function Sidebar() {
               </div>
               <p className="category__function-tag">Lịch họp</p>
             </NavLink>
-            <NavLink to="/report" className="category__function-item">
+            <NavLink to="/report" className="category__function-item text-decor-none">
               <div className="category__function-wrap">
                 <span className="icon material-icons-sharp category__function-icon">
                   bar_chart
@@ -75,78 +75,15 @@ function Sidebar() {
           DWorking
         </div>
         <Routes>
-            <Route path="/document" element={<PanelDocument />} >
-              <Route path="/document/:title" element={<Document />} />
-            </Route>
-            <Route path="/storage" element={<PanelStorage />} >
-              <Route path="/storage/:title" element={<Storage />} />
-            </Route>
-          </Routes>
-          
-        {/* <NavLink to="" className="panel__wrapper">
-          <div className="panel__create">
-            <button className="panel__create-btn btn btn-create-white">
-              <span className="icon material-icons-sharp" style={{marginRight: 12}}>
-                edit
-              </span>
-              Tạo tài liệu
-            </button>
-          </div>
-          <ul className="panel__options-list">
-            <li className="panel__options-item active">
-              <span className="icon material-icons-sharp" style={{textAlign:'left'}}>
-                article
-              </span>
-              <p className="panel__option-tag">Tất cả tài liệu</p>
-            </li>
-            <li className="panel__options-item">
-              <span className="icon material-icons-sharp" style={{textAlign:'left'}}>
-                send
-              </span>
-              <p className="panel__option-tag">Tài liệu đã gửi</p>
-            </li>
-            <li className="panel__options-item">
-              <span className="icon material-icons-sharp" style={{textAlign:'left'}}>
-                star_border
-              </span>
-              <p className="panel__option-tag">Tài liệu quan trọng</p>
-            </li>
-            <li className="panel__options-item">
-              <span className="icon material-icons-sharp" style={{textAlign:'left'}}>
-                file_copy
-              </span>
-              <p className="panel__option-tag">Nháp</p>
-            </li>
-            <li className="panel__options-item">
-              <span className="icon material-icons-sharp" style={{textAlign:'left'}}>
-                check_box
-              </span>
-              <p className="panel__option-tag">Cần phê duyệt</p>
-            </li>
-          </ul>
-          <div className="panel__label-wrapper">
-            <div className="label__title-wrapper flex-center-y">
-              <p className="label-text">NHÃN</p>
-              <button title="addLabel" className="open-modal label-add-wrapper">
-                <span title="addLabel" className="label-add-icon icon material-icons">
-                  add
-                </span>
-              </button>
-            </div>
-            <ul className="label__list">
-            </ul>
-          </div>
-        </NavLink>
-        <NavLink to="" className="panel__wrapper">
-        </NavLink>
-        <NavLink to="" className="panel__wrapper">
-        </NavLink>
-        <NavLink to="" className="panel__wrapper">
-        </NavLink>
-        <NavLink to="" className="panel__wrapper">
-        </NavLink>
-        <NavLink to="" className="panel__wrapper">
-        </NavLink> */}
+          <Route index element={<PanelDocument />} />
+          <Route path="/document" element={<PanelDocument />} >
+            <Route path="/document/:title" element={<Document />} />
+          </Route>
+          <Route path="/storage" element={<PanelStorage />} >
+            <Route path="/storage/:title" element={<Storage />} />
+          </Route>
+        </Routes>
+        
       </div>
     </div>
 

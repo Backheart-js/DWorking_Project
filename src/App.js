@@ -2,13 +2,16 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './component/Layout';
 import { Document, Storage, Message, Work, Schedule, Report } from './pages';
+import DocumentAll from './pages/Document/DocumentAll';
 
 function App() {
   return (
     <div className="App">
         <Layout>
           <Routes>
-            <Route path="/document/:title" element={<Document />} />
+            <Route index element={<DocumentAll />} />
+        
+            <Route path="/document/:title" element={<Document/>} />
             <Route path="/storage/:title" element={<Storage />} />
             <Route path="/message/:title" element={<Message />} />
             <Route path="/work/:title" element={<Work />} />
