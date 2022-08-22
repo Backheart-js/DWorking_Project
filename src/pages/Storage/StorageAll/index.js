@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import Image from '../../../component/Image';
 import styles from './StorageAll.module.scss';
 
 function StorageAll() {
@@ -245,7 +246,7 @@ function StorageAll() {
               <div className={styles.fileGroup}>
                 <div className={styles.fileWrapper}>
                   <div className={styles.fileImageWrapper}>
-                    <img src="https://www.thegeeksclub.com/wp-content/uploads/2022/06/source-documents-1024x682-1.jpeg" alt="file image" className={styles.fileImg}/>
+                    <Image src={"https://www.thegeeksclub.com/wp-content/uploads/2022/06/source-documents-1024x682-1.jpeg"} className={styles.fileImg} alt={"file image"} />
                   </div>
                   <div className={styles.fileInfo}>
                     <span className={`material-icons icon ${styles.fileIcon}`}>
@@ -267,7 +268,7 @@ function StorageAll() {
                 </div>
                 <div className={styles.fileWrapper}>
                   <div className={styles.fileImageWrapper}>
-                    <img src="https://www.thegeeksclub.com/wp-content/uploads/2022/06/source-documents-1024x682-1.jpeg" alt="file image" className={styles.fileImg}/>
+                    <Image src={"https://www.thegeeksclub.com/wp-content/uploads/2022/06/source-documents-1024x682-1.jpeg"} className={styles.fileImg} alt={"file image"} />
                   </div>
                   <div className={styles.fileInfo}>
                     <span className={`material-icons icon ${styles.fileIcon}`}>

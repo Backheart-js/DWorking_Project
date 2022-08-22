@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import img from '../../assets/img';
 
-function Image(src, className, alt, ...props) {
+function Image({ src = img.noImage, className, alt, ...props }) {
   const [fallback, setFallback] = useState('');
   const handleError = () => {
     setFallback(img.noImage);
