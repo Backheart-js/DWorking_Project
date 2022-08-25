@@ -1,4 +1,3 @@
-import { red } from '@mui/material/colors';
 import React, { useReducer, useState } from 'react'
 import BasicModal from '../../../component/Modal';
 import { dataMembers } from "../../../storageData/Datas";
@@ -163,13 +162,13 @@ function DocumentCreate() {
 
   return (
       <div className="table table-create-doc">
-        <div className="table-create-header flex-center-y">
-          <div className="back-wrapper">
-            <span className="icon material-icons">
+        <div className={`flex-center-y ${styles.tableCreateHeader}`}>
+          <div className={styles.backBtnWrapper}>
+            <span className={`icon material-icons ${styles.backIcon}`}>
               arrow_back
             </span>
           </div>
-          <h3 className>Tạo tài liệu trình ký mới</h3>
+          <h3 className={styles.backTitle}>Tạo tài liệu trình ký mới</h3>
         </div>
         <div className="table-create-content">
           <div className="doc-row row h-full">

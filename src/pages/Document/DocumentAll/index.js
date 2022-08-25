@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Dropdown from '../../../component/Dropdown';
 
 function DocumentAll() {
 
@@ -16,11 +17,11 @@ function DocumentAll() {
               <div className="table__icon-wrap flex-center-x">
                 <input type="checkbox" className="table__content-checkbox" />
               </div>
-              <div className="icon-dropdown-wrap flex-center-x">
+              <div className="icon-dropdown-wrap flex-center-x" data-toggle="dropdown"> 
                 <span className="icon-dropdown icon material-icons">
                   expand_more
                 </span>
-                <div className="dropdown__wrapper dropdown-checkbox">
+                <Dropdown className={"dropdown__wrapper"}>
                   <ul className="dropdown__list">
                     <li className="dropdown__row">Tất cả</li>
                     <li className="dropdown__row">Bỏ chọn tất cả</li>
@@ -29,7 +30,7 @@ function DocumentAll() {
                     <li className="dropdown__row">Gắn dấu sao</li>
                     <li className="dropdown__row">Không gắn dấu sao</li>
                   </ul>
-                </div>
+                </Dropdown>
               </div>
             </div>
             <div className="table__icon-wrap flex" style={{justifyContent: 'start'}}>

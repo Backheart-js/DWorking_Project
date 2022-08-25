@@ -408,3 +408,52 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.contextWraper {
+    position: absolute;
+    min-width: 250px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    animation: growDown 150ms ease-in-out forwards;
+    transform-origin: top;
+
+    .contextList {
+        padding: 8px 0;
+        list-style: none;
+        text-align: left;
+        margin-bottom: 0;
+
+        .contextItem {
+            display: flex;
+            color: #777;
+            align-items: center;
+            padding: 6px 8px;
+
+            .contextIcon {
+                margin-right: 8px;
+                font-weight: 500;
+                font-size: 2rem;
+                line-height: 2.4rem;
+            }
+            .contextContentSelect {
+                font-weight: 500;
+                font-size: 1.6rem;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: #e8e7e7;
+            }
+        }
+    }
+}
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
